@@ -18,12 +18,25 @@
         <label >apellido</label>
         <input type="text" id="apellido" placeholder="ingresa tu apellido" name="apellido">
         <label>fecha nacimiento</label>
-        <input type="text" id="fecha_nacimiento" placeholder="Ingresa tu fecha de nacimiento" name="fecha_nacimiento">
+        <input type="date" id="fecha_nacimiento" placeholder="Ingresa tu fecha de nacimiento" name="fecha_nacimiento">
         <label>rut</label>
         <input type="text" id="rut" placeholder="ingresa tu rut" name="rut">
         <label>correo</label>
         <input type="email" id="correo" placeholder="ingresa tu correo" name="correo">
         <button id="btnregistrar" type="button">registrar</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Rut</th>
+                    <th>Correo</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody id="tbDatos"></tbody>
+        </table>
 
     </form>
     
