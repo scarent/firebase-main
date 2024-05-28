@@ -1,4 +1,4 @@
-import { actualizarPersona, obtenerPersonas, registrarpersona } from "./promesas.js";
+import { actualizarPersona, eliminarPersona, obtenerPersonas, registrarpersona } from "./promesas.js";
 
 window.addEventListener("load",()=>{
     document.getElementById("btnregistrar").addEventListener("click",registrar);
@@ -48,7 +48,7 @@ const cargarDatos = ()=>{
             estructura += "<td>"+persona.fechaNacimiento+"</td>";
             estructura += "<td>"+persona.edad+"</td>";
             estructura += "<td><button id='UPD"+persona.id+"'>Actualizar</button></td>"; //boton para actualizar
-            estructura += "<td><button id='DEL'"+persona.id+"'>Eliminar</button></td>";  //boton para delete
+            estructura += "<td><button id='DEL"+persona.id+"'>Eliminar</button></td>";  //boton para delete
             estructura += "</tr>"
         });
         document.getElementById("tbDatos").innerHTML = estructura;
@@ -68,6 +68,16 @@ const cargarDatos = ()=>{
                 efechanac.value = persona.fechaNacimiento;
                 eedad.value = persona.edad;
                 document.getElementById("btnActualizar").value = persona.id;
+            })
+            let botonDEL=document.getElementById("DEL"+persona.id);
+            botonDEL.addEventListener("click",()=>{
+                if (confirm("Seguro de eliminar a :\nNombre:"+persona.nombre+" "+persona.apellido)){
+                    eliminarPersona(persona.id).then(()=>{
+                        alert("Eliminado cn exito");
+                        cargarDatos();
+
+                    });
+                }
             })
         })
     });
